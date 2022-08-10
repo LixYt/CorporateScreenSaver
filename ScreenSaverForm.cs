@@ -21,10 +21,12 @@ namespace ScreenSaver
 			ScreenNumber = scrn;
 						
 			Name = $"Screen{scrn}";
-
-			BackgroundImage = Image.FromFile(p.imgPath);
-			BackgroundImageLayout = ImageLayout.Zoom;
-
+			if (File.Exists(p.imgPath))
+            {
+				BackgroundImage = Image.FromFile(p.imgPath);
+				BackgroundImageLayout = ImageLayout.Zoom;
+			}
+			
 			parameters = p;
 		}
 
